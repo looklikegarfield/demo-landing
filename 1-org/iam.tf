@@ -49,7 +49,7 @@ Your use of it is subject to your agreement with Google.
   Module to assign Organization IAM Roles.
 *************************************************/
 
-/*# Additional Reference: https://github.com/terraform-google-modules/terraform-google-iam/tree/master/modules/organizations_iam
+# Additional Reference: https://github.com/terraform-google-modules/terraform-google-iam/tree/master/modules/organizations_iam
 module "org-admin-iam-bindings" {
   source        = "terraform-google-modules/iam/google//modules/organizations_iam"
   version       = "~> 7.4.0"
@@ -115,8 +115,7 @@ module "org-viewer-iam-bindings" {
     ]
   }
 }
-*/
-/*
+
 module "network-admin-iam-bindings" {
   source        = "terraform-google-modules/iam/google//modules/organizations_iam"
   version       = "~> 7.4.0"
@@ -558,4 +557,4 @@ module "soc-viewer-iam-bindings" {
     ]
   }
 }
-*/
+
