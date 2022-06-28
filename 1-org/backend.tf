@@ -16,7 +16,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "UPDATEBUCKET"
-    prefix = "terraform/2-zee-common/UPDATEENV/state"
+    bucket = "test-tfstate-cfdc"
+    prefix = "terraform/1-org/state"
   }
 }
