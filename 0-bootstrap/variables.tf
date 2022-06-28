@@ -21,6 +21,7 @@ variable "activate_apis" {
 variable "bootstrap_project_id" {
   description = "Name of the Bootstrap Project within the Org"
   type        = string
+  default     = "529467127917"
 }
 
 variable "tf_service_account_id" {
