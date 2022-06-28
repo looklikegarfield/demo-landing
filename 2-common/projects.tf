@@ -4,13 +4,13 @@
 # Your use of it is subject to your agreement with Google.
 
 /*************************************************
-  Module to create project in zee-common folder.
+  Module to create project in common folder.
 *************************************************/
 module "prj-customer-common-udp" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 10.1"
 
-  name              = "prj-customer-common-${var.environment}-udp"
+  name              = "prj-common-${var.environment}-udp"
   random_project_id = true
   org_id            = var.org_id
   folder_id         = module.common_sub_folder.id
