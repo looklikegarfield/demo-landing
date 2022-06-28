@@ -69,7 +69,7 @@ variable "mtu" {
 variable "google_destination_range" {
   type        = string
   description = "The Default Internal Google IP for Whitelising GCP Access from On Premise"
-  default     = "199.36.153.8/30"
+  default     = "10.0.0.0/16"
 }
 
 variable "fw_rules" {

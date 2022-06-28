@@ -17,6 +17,6 @@
 terraform {
   backend "gcs" {
     bucket = "test-tfstate-cfdc"
-    prefix = "terraform/3-networks/${var.environment}/state"
+    prefix = "terraform/3-networks/prd/state"
   }
 }
