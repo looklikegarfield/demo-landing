@@ -104,6 +104,7 @@ variable "default_region" {
   description = "Default region for Cloud Routers"
 }
 
+/*
 variable "zee5_cloud_router_name" {
   type        = string
   description = "Cloud Router name to be used for zee5"
@@ -123,6 +124,7 @@ variable "zeel_bgp_asn" {
   type        = number
   description = "BGP ASN for zeel cloud router."
 }
+*/
 
 variable "nat_name" {
   type        = string

@@ -18,33 +18,33 @@ Your use of it is subject to your agreement with Google.
 *************************************************/
 
 # Additional Reference: https://github.com/terraform-google-modules/terraform-google-iam/tree/master/modules/billing_accounts_iam
-#module "billing-admin-iam-bindings" {
-#  source              = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
-#  version             = "~> 7.4.0"
-#  billing_account_ids = var.billing_account
-#
-#  mode = "additive"
-#
-#  bindings = {
-#    "roles/billing.user" = [
-#      "group:${var.grp_billing_admin}",
-#    ]
-#  }
-#}
-#
-#module "billing-viewer-iam-bindings" {
-#  source              = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
-#  version             = "~> 7.4.0"
-#  billing_account_ids = var.billing_account
-#
-#  mode = "additive"
-#
-#  bindings = {
-#    "roles/billing.viewer" = [
-#      "group:${var.grp_billing_viewer}",
-#    ]
-#  }
-#}
+module "billing-admin-iam-bindings" {
+  source              = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
+  version             = "~> 7.4.0"
+  billing_account_ids = var.billing_account
+
+  mode = "additive"
+
+  bindings = {
+    "roles/billing.user" = [
+      "group:${var.grp_billing_admin}",
+    ]
+  }
+}
+
+module "billing-viewer-iam-bindings" {
+  source              = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
+  version             = "~> 7.4.0"
+  billing_account_ids = var.billing_account
+
+  mode = "additive"
+
+  bindings = {
+    "roles/billing.viewer" = [
+      "group:${var.grp_billing_viewer}",
+    ]
+  }
+}
 /*************************************************
   Module to assign Organization IAM Roles.
 *************************************************/
@@ -73,21 +73,21 @@ module "org-admin-iam-bindings" {
       "group:${var.grp_org_admin}",
     ]
 
-   # "roles/serviceusage.serviceUsageAdmin" = [
-   #   "group:${var.grp_org_admin}",
-   # ]
-#
-   # "roles/cloudsupport.techSupportEditor" = [
-   #   "group:${var.grp_org_admin}",
-   # ]
-#
-   # "roles/essentialcontacts.admin" = [
-   #   "group:${var.grp_org_admin}",
-   # ]
-#
-   # "roles/billing.user" = [
-   #   "group:${var.grp_org_admin}",
-   # ]
+    "roles/serviceusage.serviceUsageAdmin" = [
+      "group:${var.grp_org_admin}",
+    ]
+
+    "roles/cloudsupport.techSupportEditor" = [
+      "group:${var.grp_org_admin}",
+    ]
+
+    "roles/essentialcontacts.admin" = [
+      "group:${var.grp_org_admin}",
+    ]
+
+    "roles/billing.user" = [
+      "group:${var.grp_org_admin}",
+    ]
   }
 }
 
