@@ -16,7 +16,7 @@ Your use of it is subject to your agreement with Google.
 /*************************************************
   Module to assign Billing Account IAM Roles.
 *************************************************/
-
+/*
 # Additional Reference: https://github.com/terraform-google-modules/terraform-google-iam/tree/master/modules/billing_accounts_iam
 module "billing-admin-iam-bindings" {
   source              = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
@@ -45,6 +45,7 @@ module "billing-viewer-iam-bindings" {
     ]
   }
 }
+*/
 /*************************************************
   Module to assign Organization IAM Roles.
 *************************************************/
