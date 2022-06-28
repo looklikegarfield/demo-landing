@@ -1,5 +1,5 @@
 parent                = "organizations/231102621495"
-names                 = "customer-common" ## ["customer-common", "customer-shared"]
+names                 = ["customer-common", "customer-shared"]
 set_roles             = false
 org_id                = ["231102621495"]
 billing_account       = ["010934-4963CB-E9C606"]
