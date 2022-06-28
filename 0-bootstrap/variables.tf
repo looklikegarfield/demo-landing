@@ -45,7 +45,7 @@ variable "encrypt_gcs_bucket_tfstate" {
 variable "default_region" {
   description = "Default region to create resources where applicable."
   type        = string
-  default     = "us-central1"
+  default     = "asia-south1"
 }
 
 variable "project_labels" {
