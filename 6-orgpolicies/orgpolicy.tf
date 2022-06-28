@@ -125,6 +125,7 @@ resource "google_organization_policy" "service_account_credential_policy" {
   }
 }
 
+/*
 resource "google_organization_policy" "allowed_policy_member_domains_policy" {
   org_id     = var.org_id
   constraint = "constraints/iam.allowedPolicyMemberDomains"
@@ -134,6 +135,7 @@ resource "google_organization_policy" "allowed_policy_member_domains_policy" {
     }
   }
 }
+*/
 
 resource "google_organization_policy" "disable_service_account_creation_policy" {
   org_id     = var.org_id
