@@ -1,0 +1,105 @@
+/*
+Copyright 2022 Google LLC. This software is provided as-is, without warranty or representation for any use or purpose.
+Your use of it is subject to your agreement with Google.
+*/
+
+variable "project_id" {
+  type        = string
+  description = "VPC Project ID"
+}
+
+variable "default_region" {
+  type        = string
+  description = "Default region for Cloud Routers"
+}
+
+variable "vpc_name" {
+  type        = string
+  description = "Label to identify the VPC associated with shared VPC that will use the VPN."
+}
+
+variable "vpc_self_link" {
+  type        = string
+  description = "VPC Self link"
+}
+
+variable "vgw_name" {
+  type        = string
+  description = "VPN Gateway name to be used."
+}
+
+variable "vgw_self_link" {
+  type        = string
+  description = "VPN Gateway Self link"
+}
+
+variable "ext_vgw_name" {
+  type        = string
+  description = "External VPN Gateway name to be used."
+}
+
+variable "aws_peer_gw_ip_address_0" {
+  type        = string
+  description = "AWS Peer Gateway IP address 1"
+}
+
+variable "aws_peer_gw_ip_address_1" {
+  type        = string
+  description = "AWS Peer Gateway IP address 2"
+}
+
+variable "cloud_router_name" {
+  type        = string
+  description = "Name of the cloud router."
+}
+
+variable "psk_secret_key_0" {
+  type        = string
+  description = "The psk secret key 0."
+}
+
+variable "psk_secret_key_1" {
+  type        = string
+  description = "The psk secret key 1."
+}
+
+variable "bgp_peer_asn" {
+  type        = number
+  description = "BGP ASN for cloud routes."
+}
+
+variable "tunnel0_aws_bgp_peer_address" {
+  type        = string
+  description = "AWS BGP Peer IP 1 for tunnel 0"
+}
+
+variable "tunnel1_aws_bgp_peer_address" {
+  type        = string
+  description = "AWS BGP Peer IP 2 for tunnel 1"
+}
+
+variable "vpn_tunnel_name_0" {
+  type        = string
+  description = "VPN Tunnel name 0"
+}
+
+variable "vpn_tunnel_name_1" {
+  type        = string
+  description = "VPN Tunnel name 1"
+}
+
+variable "tunnel0_aws_bgp_peer_range" {
+  type        = string
+  description = "BGP session range for tunnel 0"
+}
+
+variable "tunnel1_aws_bgp_peer_range" {
+  type        = string
+  description = "BGP session address for tunnel 1"
+}
+
+variable "create_vgw" {
+  type        = bool
+  description = "create a VPN gateway"
+  default     = false
+}

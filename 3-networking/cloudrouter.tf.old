@@ -1,0 +1,49 @@
+/*
+Copyright 2022 Google LLC. This software is provided as-is, without warranty or representation for any use or purpose.
+Your use of it is subject to your agreement with Google.
+*/
+
+/******************************************
+  Cloud Router configuration
+ *****************************************/
+
+
+module "zee5_cloud_router" {
+  source  = "terraform-google-modules/cloud-router/google"
+  version = "~> 0.4"
+
+  depends_on = [module.vpc]
+  name       = var.zee5_cloud_router_name
+  region     = var.default_region
+
+  bgp = {
+    # The ASN (16550, 64512 - 65534, 4200000000 - 4294967294) can be any private ASN
+    # not already used as a peer ASN in the same region and network or 16550 for Partner Interconnect.
+    asn = var.zee5_bgp_asn
+  }
+
+  project = var.project_id
+  network = module.vpc.network_name
+
+  nats = [{
+    name = var.nat_name
+  }]
+}
+
+module "zeel_cloud_router" {
+  source  = "terraform-google-modules/cloud-router/google"
+  version = "~> 0.4"
+
+  depends_on = [module.vpc]
+  name       = var.zeel_cloud_router_name
+  region     = var.default_region
+
+  bgp = {
+    # The ASN (16550, 64512 - 65534, 4200000000 - 4294967294) can be any private ASN
+    # not already used as a peer ASN in the same region and network or 16550 for Partner Interconnect.
+    asn = var.zeel_bgp_asn
+  }
+
+  project = var.project_id
+  network = module.vpc.network_name
+}

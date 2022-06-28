@@ -1,0 +1,14 @@
+output "vgw_id" {
+  description = "VGW id"
+  value       = google_compute_ha_vpn_gateway.ha_gateway.id
+}
+
+output "vgw_self_link" {
+  description = "VGW self link"
+  value       = google_compute_ha_vpn_gateway.ha_gateway.self_link
+}
+
+output "vpn_interfaces" {
+  description = "VPN Interfaces"
+  value       = google_compute_ha_vpn_gateway.ha_gateway.vpn_interfaces
+}

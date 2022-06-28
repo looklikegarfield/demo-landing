@@ -1,0 +1,69 @@
+/*
+Copyright 2022 Google LLC. This software is provided as-is, without warranty or representation for any use or purpose.
+Your use of it is subject to your agreement with Google.
+*/
+
+/******************************************
+  HA VPN configuration
+ *****************************************/
+
+resource "google_compute_ha_vpn_gateway" "ha_gateway" {
+  provider = google-beta
+  name     = var.vgw_name
+  project  = var.project_id
+  region   = var.default_region
+  network  = var.vpc_self_link
+}
+
+module "vpn_ha" {
+  source                = "../../modules/vpn_ha"
+  project_id            = var.project_id
+  region                = var.default_region
+  network               = var.vpc_name
+  name                  = var.vgw_name
+  external_vgw_name     = var.ext_vgw_name
+  vpn_gateway_self_link = var.vgw_self_link
+  create_vpn_gateway    = var.create_vgw
+  peer_external_gateway = {
+    redundancy_type = "TWO_IPS_REDUNDANCY"
+    interfaces = [
+      {
+        id         = 0
+        ip_address = var.aws_peer_gw_ip_address_0
+      },
+      {
+        id         = 1
+        ip_address = var.aws_peer_gw_ip_address_1
+      }
+    ]
+  }
+  router_name = var.cloud_router_name
+  tunnels = {
+    remote-0 = {
+      bgp_peer = {
+        address = var.tunnel0_aws_bgp_peer_address
+        asn     = var.bgp_peer_asn
+      }
+      bgp_peer_options                = null
+      bgp_session_range               = var.tunnel0_aws_bgp_peer_range
+      ike_version                     = 2
+      vpn_gateway_interface           = 0
+      peer_external_gateway_interface = 0
+      shared_secret                   = var.psk_secret_key_0
+      tunnel_name                     = var.vpn_tunnel_name_0
+    }
+    remote-1 = {
+      bgp_peer = {
+        address = var.tunnel1_aws_bgp_peer_address
+        asn     = var.bgp_peer_asn
+      }
+      bgp_peer_options                = null
+      bgp_session_range               = var.tunnel1_aws_bgp_peer_range
+      ike_version                     = 2
+      vpn_gateway_interface           = 1
+      peer_external_gateway_interface = 1
+      shared_secret                   = var.psk_secret_key_1
+      tunnel_name                     = var.vpn_tunnel_name_1
+    }
+  }
+}
