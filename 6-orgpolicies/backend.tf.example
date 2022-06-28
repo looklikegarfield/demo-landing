@@ -16,7 +16,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "UPDATEBUCKET"
+    bucket = "test-tfstate-cfdc"
     prefix = "terraform/6-orgpolicies/state"
   }
 }
