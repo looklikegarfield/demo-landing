@@ -11,8 +11,8 @@ module "prj-customer-shd-net-conn-hub" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 10.1"
 
-  name              = "prj-customer-shd-${var.environment}-net-conn-hub"
-  project_id        = "prj-customer-shd-${var.environment}-net-con"
+  name              = "prj-shd-${var.environment}-net-conn-hub"
+  project_id        = "prj-shd-${var.environment}-net-con"
   random_project_id = true
   org_id            = var.org_id
   folder_id         = module.shared_sub_folder.id
@@ -25,8 +25,8 @@ module "prj-customer-shd-sec-security" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 10.1"
 
-  name              = "prj-customer-shd-${var.environment}-sec-security"
-  project_id        = "prj-customer-shd-${var.environment}-sec-sec"
+  name              = "prj-shd-${var.environment}-sec-security"
+  project_id        = "prj-shd-${var.environment}-sec-sec"
   random_project_id = true
   org_id            = var.org_id
   folder_id         = module.shared_sub_folder.id
@@ -39,8 +39,8 @@ module "prj-customer-shd-ops-logging" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 10.1"
 
-  name              = "prj-customer-shd-${var.environment}-ops-logging"
-  project_id        = "prj-customer-shd-${var.environment}-ops-log"
+  name              = "prj-shd-${var.environment}-ops-logging"
+  project_id        = "prj-shd-${var.environment}-ops-log"
   random_project_id = true
   org_id            = var.org_id
   folder_id         = module.shared_sub_folder.id
@@ -53,8 +53,8 @@ module "prj-customer-shd-ops-monitoring" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 10.1"
 
-  name              = "prj-customer-shd-${var.environment}-ops-monitoring"
-  project_id        = "prj-customer-shd-${var.environment}-ops-mon"
+  name              = "prj-shd-${var.environment}-ops-monitoring"
+  project_id        = "prj-shd-${var.environment}-ops-mon"
   random_project_id = true
   org_id            = var.org_id
   folder_id         = module.shared_sub_folder.id
