@@ -1,4 +1,4 @@
-project_id   = "prj-shd-prd-net-con-5d14"
+project_id   = "prj-shd-prd-net-con-c16f"
 network_name = "vpc-shd-prd-net-conn-hub-svpc-01"
 subnets = [{
   subnet_name           = "sub-shd-prd-net-conn-hub-svpc-01-as1-01"
